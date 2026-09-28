@@ -1,0 +1,2072 @@
+/* WSJ Leadership Institute Company Comparison Dashboard Styles */
+/* Base styles and colors are imported from base-styles.css */
+
+/* App frame — sticks once masthead/header scroll away, fills viewport */
+.app-frame {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Controls Section */
+.controls {
+    background: var(--wsj-white);
+    padding: 6px 40px;
+    border-bottom: 2px solid var(--line-medium);
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Category Selector Container */
+.category-selector-container {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Selector group card — wraps each row (pillars / indicators) */
+.selector-group {
+    background: var(--bg-cream);
+    border: none;
+    border-radius: 6px;
+    padding: 8.5px 10px;
+}
+
+.selector-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.selector-group-header .section-tag {
+    margin-bottom: 0;
+}
+
+/* (element-selector-wrap removed — indicator section now rendered conditionally) */
+
+/* Selector layout: buttons left, description text right (vertically centered) */
+.selector-group-flow {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 160px;
+    overflow: hidden;
+}
+
+.selector-group-buttons {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.selector-group-buttons .indicator-float {
+    margin-top: 4px;
+}
+
+/* "What's Measured" text — fills remaining space, vertically centered;
+   wraps below buttons if viewport is too narrow (min-width triggers wrap) */
+.whats-measured-inline {
+    flex: 1 1 200px;
+    min-width: 0;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-gray, #697380);
+    text-align: left;
+    border-left: 2px solid var(--brand-azure, #1138E6);
+    padding-left: 12px;
+    animation: wm-fade-in 0.25s ease both;
+    align-self: center;
+}
+
+.whats-measured-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-stone, #7A7A7A);
+}
+
+.whats-measured-indicator {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--primary-navy, #0A2239);
+}
+
+@keyframes wm-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Page guide trigger in nav header */
+.guide-trigger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: none;
+    background: none;
+    padding: 0;
+    position: relative;
+}
+
+.guide-trigger-top {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.guide-trigger:hover .guide-btn {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    border-color: var(--brand-bright-blue);
+}
+
+.guide-trigger:hover .guide-label {
+    color: var(--primary-navy);
+}
+
+.guide-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-stone);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+}
+
+.guide-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--primary-navy);
+    background: var(--wsj-white);
+    color: var(--primary-navy);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    padding: 0;
+}
+
+/* Mini page-map — always visible, absolutely positioned to avoid adding height */
+.guide-mini-map {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 96px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    z-index: 110;
+}
+
+.gmm-top {
+    background: rgba(30, 56, 95, 0.12);
+    border: 1px solid rgba(30, 56, 95, 0.25);
+    border-radius: 2px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gmm-bottom {
+    display: flex;
+    gap: 3px;
+    height: 44px;
+}
+
+.gmm-left {
+    flex: 0 0 35%;
+    background: rgba(30, 56, 95, 0.08);
+    border: 1px solid rgba(30, 56, 95, 0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gmm-right {
+    flex: 1;
+    background: rgba(30, 56, 95, 0.08);
+    border: 1px solid rgba(30, 56, 95, 0.2);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gmm-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    line-height: 1;
+}
+
+
+/* Guide modal */
+.guide-modal {
+    background: var(--wsj-white);
+    border-radius: 10px;
+    padding: 36px 40px;
+    max-width: 560px;
+    width: 90vw;
+    position: relative;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.guide-modal h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    color: var(--primary-navy);
+    margin-bottom: 8px;
+}
+
+.guide-intro {
+    font-size: 14px;
+    color: var(--wsj-gray);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+/* Mini layout diagram in the modal */
+.guide-layout {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.guide-layout-frame {
+    width: 280px;
+    border: 2px solid #C8C2BA;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.guide-layout-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid #C8C2BA;
+}
+
+.guide-layout-bottom {
+    display: flex;
+    min-height: 80px;
+}
+
+.guide-layout-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38%;
+    border-right: 2px solid #C8C2BA;
+}
+
+.guide-layout-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.guide-highlight-1 { background: var(--bg-cream-3); }
+.guide-highlight-2 { background: var(--bg-cream); }
+.guide-highlight-3 { background: var(--wsj-white); }
+
+/* Step list in guide modal */
+.guide-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.guide-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.guide-step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.guide-step strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin-bottom: 4px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+}
+
+.guide-step p {
+    font-size: 13px;
+    color: var(--wsj-gray-dark);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.selector-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-stone);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    margin-bottom: 8px;
+}
+
+/* Pillar Selector */
+.pillar-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.pillar-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.pillar-btn:hover {
+    background: var(--bg-cream);
+}
+
+.pillar-btn.active {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    border-color: var(--primary-navy);
+}
+
+/* Overall Button — matches pillar buttons, azure fill when active */
+.overall-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.overall-btn:hover {
+    background: var(--bg-cream);
+}
+
+.overall-btn.active {
+    background: var(--brand-azure);
+    color: var(--primary-cream);
+    border-color: var(--brand-azure);
+}
+
+/* Element Selector (indicator tabs below pillar selector) */
+.element-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-top: 0;
+    transition: opacity 0.15s ease;
+}
+
+.element-btn {
+    padding: 4px 12px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.element-btn:hover {
+    background: var(--bg-cream);
+}
+
+.element-btn.active {
+    background: transparent;
+    border-color: var(--brand-azure);
+    color: var(--primary-navy);
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    min-height: 0;
+    padding: 0 40px;
+}
+
+/* Main Grid Layout - 40% / 60% split */
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    gap: 0;
+    height: 100%;
+    padding: 0;
+}
+
+/* Left Panel - Company Selection */
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+    min-height: 0;
+    padding: 8px 12px 0 12px;
+    background: var(--bg-cream);
+    border-right: 2px solid var(--line-medium);
+}
+
+.s2-header-row {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4px 4px 0;
+}
+
+.s2-header-row .section-tag {
+    margin: 0;
+}
+
+.qp-btn {
+    padding: 2px 7px;
+    background: none;
+    color: var(--primary-navy);
+    border: 1px solid var(--wsj-border);
+    border-radius: 3px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.qp-btn:hover {
+    background: var(--bg-cream);
+    border-color: var(--brand-bright-blue);
+}
+
+.qp-sector {
+    padding: 2px 4px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 3px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--primary-navy);
+    background: var(--wsj-white);
+    cursor: pointer;
+    max-width: 90px;
+    text-overflow: ellipsis;
+}
+
+.left-panel > .s2-two-col {
+    flex: 1;
+    min-height: 0;
+}
+
+/* ── Section 2: Two-column layout ── */
+.s2-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    height: 100%;
+    min-height: 0;
+    column-gap: 8px;
+}
+
+.s2-col {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.s2-leaderboard {
+    border-right: 1px solid var(--line-medium);
+    padding-right: 8px;
+}
+
+.s2-col-header {
+    flex-shrink: 0;
+    padding: 10px 10px;
+    background: var(--wsj-white);
+    border-bottom: 1px solid var(--wsj-border);
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.s2-col-header h3 {
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    color: var(--ink-stone);
+    padding: 0 2px;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.sort-toggle:hover {
+    color: var(--primary-navy);
+}
+
+/* Search sits below the h3 in leaderboard col */
+.s2-col-header .company-finder-search {
+    margin: 8px 0 0;
+}
+
+.s2-dataset-badge {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--wsj-gray);
+    background: var(--primary-cream);
+    padding: 1px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+
+.s2-scroll {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-medium) transparent;
+}
+
+.s2-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.s2-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.s2-scroll::-webkit-scrollbar-thumb {
+    background: var(--line-medium);
+    border-radius: 3px;
+}
+
+.s2-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--ink-stone);
+}
+
+.s2-selected .s2-scroll {
+    padding-right: 4px;
+}
+
+.s2-leaderboard .s2-scroll {
+    padding-right: 4px;
+}
+
+.s2-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.s2-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--wsj-white);
+}
+
+.s2-table th {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--wsj-gray);
+    padding: 4px 6px;
+    border-bottom: 1px solid var(--wsj-border);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.s2-table td {
+    padding: 4px 6px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--row-divider);
+}
+
+.s2-table .rank-col { width: 36px; text-align: center; }
+.s2-table .color-col { width: 18px; padding: 0 2px; }
+.s2-table .action-col { width: 24px; text-align: center; padding: 0; }
+.s2-table .score-col { width: 52px; text-align: right; }
+
+.s2-selected .empty-state {
+    padding: 24px 12px;
+    text-align: center;
+    color: var(--wsj-gray);
+    font-size: 12px;
+}
+
+.empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--wsj-gray);
+    font-style: italic;
+}
+
+/* Info Panel */
+.info-panel {
+    background: var(--bg-cream);
+    padding: 16px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    margin-top: 16px;
+}
+
+/* How To Read Panel */
+.how-to-read-panel {
+    margin-top: 16px;
+    transition: none;
+}
+
+.how-to-read-strengths {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--wsj-gray-dark);
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--wsj-border);
+    font-style: italic;
+}
+
+/* Chart Panel Tabs */
+.chart-panel {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--wsj-border);
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow: visible;
+    margin-top: 0;
+}
+
+
+.chart-tabs {
+    display: flex;
+    background: var(--primary-navy);
+    border: 1px solid var(--wsj-border);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.chart-tab {
+    flex: 1;
+    padding: 11px 8px;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    color: rgba(245,241,232,0.85);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.chart-tab:last-child {
+    border-right: none;
+}
+
+.chart-tab:hover {
+    background: rgba(255,255,255,0.08);
+    color: var(--primary-cream);
+}
+
+.chart-tab.active {
+    background: var(--wsj-white);
+    color: var(--primary-navy);
+    font-weight: 600;
+    border-bottom: 3px solid var(--brand-azure);
+}
+
+.chart-panel-content {
+    background: var(--wsj-white);
+    min-height: 300px;
+}
+
+/* Remove double-border when charts sit inside the panel */
+.chart-panel-content .chart-container,
+.chart-panel-content .box-plot-container,
+.chart-panel-content .report-cards-container {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Normalize padding for all chart containers inside the panel */
+.chart-panel-content .chart-container,
+.chart-panel-content .box-plot-container,
+.chart-panel-content .report-cards-container,
+.chart-panel-content .grouped-bar-container,
+.chart-panel-content .gics-chart-container,
+.chart-panel-content .scatter-container {
+    padding: 0;
+}
+
+.info-panel h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-navy);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+}
+
+.info-panel p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--wsj-gray-dark);
+    margin: 0;
+}
+
+.info-panel p strong {
+    display: inline-block;
+    color: var(--primary-navy);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.info-panel p strong:first-child {
+    margin-top: 0;
+}
+
+/* Right Panel - Chart Results */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    min-height: 0;
+    padding: 0 12px 20px 12px;
+    background: var(--bg-cream);
+}
+
+/* Sticky toolbar: cream label bar + navy tabs as one unit */
+.chart-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.chart-toolbar-label {
+    background: var(--bg-cream);
+    padding: 15px 0 6px 0;
+}
+
+.chart-toolbar-label .section-tag {
+    margin: 0;
+}
+
+
+.right-panel > * {
+    flex-shrink: 0;
+}
+
+/* Clear link next to heading */
+.clear-link {
+    background: none;
+    border: none;
+    color: var(--data-vermillion);
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    cursor: pointer;
+    margin-left: 8px;
+    padding: 0;
+    text-decoration: underline;
+    vertical-align: middle;
+}
+
+.clear-link:hover {
+    color: #6B2A2A;
+}
+
+.company-finder-search {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--wsj-border);
+    font-size: 13px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    background: var(--wsj-white);
+    color: var(--wsj-black);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.company-finder-search:focus {
+    outline: none;
+    border-color: var(--brand-bright-blue);
+    box-shadow: 0 0 0 2px rgba(26, 43, 74, 0.1);
+}
+
+.company-finder-list {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    background: #fff;
+}
+
+.company-finder-row {
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.company-finder-row:hover {
+    background: var(--bg-cream) !important;
+}
+
+.company-finder-row.selected {
+    background: var(--row-divider);
+    font-weight: 600;
+    box-shadow: 3px 0 0 0 var(--row-divider);
+}
+
+.company-finder-row .add-indicator {
+    display: inline-block;
+    width: 10px;
+    color: var(--wsj-gray-light);
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+.company-finder-row .company-color-dot {
+    display: inline-block;
+    margin-right: 2px;
+    vertical-align: middle;
+}
+
+/* Selected Companies Table */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    table-layout: fixed;
+}
+
+.leaderboard-table thead {
+    border-bottom: 2px solid var(--primary-navy);
+}
+
+.leaderboard-table th {
+    text-align: left;
+    padding: 10px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wsj-black);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+}
+
+.leaderboard-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--wsj-border);
+}
+
+.leaderboard-table tbody tr:hover {
+    background: var(--bg-cream);
+}
+
+/* Combined Company Column */
+.leaderboard-table .company-col {
+    width: auto;
+    overflow: hidden;
+}
+
+.company-ticker {
+    font-weight: 600;
+    color: var(--wsj-black);
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.company-name {
+    color: var(--wsj-gray);
+    font-size: 11px;
+    line-height: 1.3;
+    margin-top: 2px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+/* Body-level tooltip for truncated company names (positioned by JS) */
+.company-name-tooltip {
+    position: fixed;
+    z-index: 9999;
+    background: var(--primary-navy, #0A2239);
+    color: var(--primary-cream, #F5F1E8);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    line-height: 1.3;
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.leaderboard-table th.company-col {
+    color: var(--wsj-black);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.leaderboard-table .rank-col {
+    width: 36px;
+    text-align: center;
+}
+
+.leaderboard-table td.rank-col {
+    font-weight: 600;
+    color: var(--wsj-black);
+}
+
+.leaderboard-table th.rank-col {
+    color: var(--wsj-black);
+}
+
+.leaderboard-table .color-col {
+    width: 28px;
+    text-align: center;
+}
+
+.leaderboard-table .sparkline-col {
+    width: 85px;
+    text-align: center;
+    padding: 8px 16px 8px 0;
+}
+
+.leaderboard-table th.sparkline-col {
+    color: var(--wsj-black);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.leaderboard-table .action-col {
+    width: 30px;
+    text-align: center;
+}
+
+
+.leaderboard-table .score-col {
+    text-align: right;
+    width: 60px;
+    padding-left: 16px;
+}
+
+.leaderboard-table td.score-col {
+    font-weight: 600;
+    font-size: 13px;
+    font-family: 'Crimson Text', serif;
+}
+
+.leaderboard-table th.score-col {
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    color: var(--wsj-black);
+}
+
+.score-bar {
+    height: 4px;
+    margin-top: 4px;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.company-color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--data-vermillion);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border-radius: 50%;
+}
+
+.remove-btn:hover {
+    background: var(--data-vermillion);
+    color: var(--wsj-white);
+}
+
+/* Box Plot Container */
+.box-plot-container {
+    background: var(--wsj-white);
+    padding: 24px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.box-plot-container svg {
+    will-change: contents;
+}
+
+.box-plot-container h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-navy);
+    font-family: 'Crimson Text', serif;
+}
+
+/* ── GICS Bar Chart ── */
+.gics-chart-container {
+    padding: 12px 0 8px;
+}
+
+/* ── Unified chart header (all chart types) ── */
+.chart-unified-header {
+    padding: 8px 12px 10px;
+    min-height: 32px;
+    box-sizing: border-box;
+}
+
+.chart-unified-title {
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-navy);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.chart-unified-breadcrumb {
+    font-weight: 400;
+    color: var(--ink-stone);
+}
+
+.chart-unified-desc {
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-stone);
+    margin: 0;
+    max-width: 600px;
+}
+
+/* ── Unified chart tooltip ── */
+.chart-tooltip {
+    display: none;
+    position: absolute;
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    line-height: 1.5;
+    pointer-events: none;
+    z-index: 200;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    white-space: nowrap;
+    max-width: 285px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.chart-tooltip strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+.chart-tooltip .tooltip-score {
+    font-family: 'Crimson Text', serif;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.chart-tooltip .tooltip-label {
+    color: rgba(245,241,232,0.65);
+    font-size: 11px;
+}
+
+.box-plot-container svg {
+    display: block;
+    margin: 0 auto;
+}
+
+.box-dot {
+    cursor: pointer;
+    transition: r 0.2s, opacity 0.2s;
+}
+
+.box-dot:hover {
+    r: 5 !important;
+}
+
+.box-label {
+    pointer-events: none;
+    user-select: none;
+}
+
+.report-cards-container {
+    background: var(--wsj-white);
+    padding: 16px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+}
+
+.report-cards-container h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-navy);
+    font-family: 'Crimson Text', serif;
+}
+
+.report-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@keyframes cardFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes rowFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.report-card {
+    background: var(--bg-cream);
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;            /* allow grid child to shrink below content size */
+}
+
+.report-card svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.report-card-header {
+    width: 100%;
+    margin-bottom: 6px;
+    text-align: center;
+    min-height: 110px;
+    height: 110px;
+    overflow: hidden;
+}
+
+.report-card-company {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.report-card-ticker {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Crimson Text', serif;
+    letter-spacing: 0.5px;
+}
+
+.report-card-name {
+    font-size: 11px;
+    color: var(--wsj-gray);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.report-card-overall {
+    font-size: 11px;
+    color: var(--wsj-black);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.report-card-chart {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -10px 0;
+}
+
+.report-card-chart svg {
+    display: block;
+}
+
+.report-card-histogram {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2px 0 0;
+    border-top: 1px solid var(--wsj-border);
+    margin-top: 4px;
+}
+
+.report-card-histogram svg {
+    display: block;
+}
+
+.report-card-score {
+    width: 100%;
+    margin-top: 4px;
+    padding-top: 6px;
+    border-top: 1px solid var(--wsj-border);
+}
+
+.report-card-rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.report-card-rank-label {
+    font-size: 8px;
+    color: var(--wsj-gray);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
+}
+
+.report-card-rank-value {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Crimson Text', serif;
+    color: var(--primary-gold);
+}
+
+/* Chart Container */
+.chart-container {
+    background: var(--wsj-white);
+    padding: 20px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.chart-container svg,
+.box-plot-container svg {
+    display: block;
+    max-width: 100%;
+}
+
+.chart-container h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-navy);
+    font-family: 'Crimson Text', serif;
+}
+
+/* Side-by-side layout for box-plot / report-cards how-to-read */
+.how-to-read-side-by-side {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.how-to-read-text {
+    flex: 1 1 50%;
+    min-width: 0;
+}
+
+.how-to-read-diagram-large {
+    flex: 0 0 42%;
+    min-width: 0;
+}
+
+/* Two-column layout for report cards how-to-read */
+.how-to-read-two-col {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.how-to-read-col {
+    flex: 1;
+    min-width: 0;
+}
+
+.how-to-read-col-divider {
+    width: 1px;
+    align-self: stretch;
+    background: var(--wsj-border);
+    margin: 0 10px;
+}
+
+.leaderboard-drawer-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    table-layout: fixed;
+}
+
+.leaderboard-drawer-table thead {
+    position: sticky;
+    top: 0;
+    background: var(--bg-cream);
+    z-index: 1;
+}
+
+.leaderboard-drawer-table th {
+    padding: 5px 8px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--wsj-gray);
+    border-bottom: 1px solid var(--wsj-border);
+}
+
+.leaderboard-drawer-table td {
+    padding: 4px 8px;
+    border-bottom: 1px solid var(--row-divider);
+    vertical-align: middle;
+}
+
+.leaderboard-drawer-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.leaderboard-drawer-table tbody tr:hover {
+    background: #faf8f4;
+}
+
+.leaderboard-row-selected {
+    background: var(--row-divider) !important;
+    font-weight: 600;
+}
+
+.leaderboard-drawer-table .rank-col {
+    width: 36px;
+    color: var(--wsj-gray);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.leaderboard-drawer-table .score-col {
+    width: 68px;
+    text-align: right;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    position: relative;
+    padding-bottom: 10px;
+    padding-right: 5px;
+}
+
+.leaderboard-drawer-table .action-col {
+    width: 26px;
+    padding: 0 7px 0 0;
+    text-align: center;
+}
+
+/* ─── Responsive: Tablet (≤1024px) ─── */
+@media (max-width: 1200px) {
+    .selector-group-flow {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Release viewport lock — let page scroll naturally on tablet/mobile */
+    .app-frame {
+        height: auto;
+        overflow: visible;
+    }
+
+    .controls {
+        padding: 12px 20px;
+    }
+
+    .pillar-btn, .overall-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .element-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+
+    .main-content {
+        padding: 0 20px;
+    }
+
+    /* Stack panels vertically */
+    .comparison-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 16px 0;
+    }
+
+    .left-panel {
+        overflow-y: visible;
+        padding: 0;
+        gap: 16px;
+        background: transparent;
+        border-right: none;
+    }
+
+    .right-panel {
+        overflow-y: visible;
+        padding-left: 0;
+        margin-top: 16px;
+    }
+
+    .chart-container {
+        padding: 16px;
+    }
+
+    .chart-container h2,
+    .box-plot-container h2,
+    .report-cards-container h2 {
+        font-size: 16px;
+    }
+
+    .report-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* SVGs fill container width */
+    .chart-container svg,
+    .box-plot-container svg {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Skeleton stacks vertically */
+    .skeleton-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton-controls {
+        flex-wrap: wrap;
+    }
+
+    /* Preset row: compact at tablet */
+    .top-preset-btn {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+
+    .sector-select {
+        font-size: 10px;
+    }
+}
+
+/* ─── Responsive: Mobile (≤600px) ─── */
+@media (max-width: 600px) {
+    .selector-group-flow {
+        min-height: auto;
+    }
+
+    .controls {
+        padding: 10px 12px;
+    }
+
+    .pillar-selector {
+        gap: 6px;
+    }
+
+    .pillar-btn, .overall-btn {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    .element-selector {
+        gap: 6px;
+        margin-top: 8px;
+    }
+
+    .element-btn {
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+
+    .main-content {
+        padding: 0 8px;
+    }
+
+    .comparison-grid {
+        padding: 8px 0;
+        gap: 0;
+    }
+
+    /* Left panel: compact on mobile so charts aren't buried */
+    .left-panel {
+        gap: 8px;
+    }
+
+    .chart-container {
+        padding: 10px;
+    }
+
+    .chart-container h2,
+    .box-plot-container h2 {
+        font-size: 15px;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+
+    /* Chart tabs — scroll horizontally if needed */
+    .chart-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .chart-tab {
+        padding: 9px 6px;
+        font-size: 11px;
+        min-width: 0;
+    }
+
+    /* Right panel: tighter top margin */
+    .right-panel {
+        margin-top: 8px;
+    }
+
+    /* Report cards single column */
+    .report-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Box plot container */
+    .box-plot-container {
+        padding: 10px;
+    }
+
+    /* Info panel compact */
+    .info-panel {
+        padding: 12px;
+        margin-top: 8px;
+    }
+
+    .info-panel h4 {
+        font-size: 13px;
+    }
+
+    /* How-to-read: stack side-by-side into column */
+    .how-to-read-side-by-side {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .how-to-read-diagram-large {
+        flex: none;
+        width: 100%;
+    }
+
+    .how-to-read-two-col {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .how-to-read-col-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+
+    /* Leaderboard table compact */
+    .leaderboard-drawer-table {
+        font-size: 11px;
+    }
+
+    .leaderboard-drawer-table th {
+        font-size: 9px;
+        padding: 4px 6px;
+    }
+
+    .leaderboard-drawer-table td {
+        padding: 3px 6px;
+    }
+
+    /* Hide sparkline column on mobile — too narrow to be useful */
+    .leaderboard-table .sparkline-col,
+    .leaderboard-drawer-table .sparkline-col {
+        display: none;
+    }
+
+    /* Skeleton: single column, shorter chart */
+    .skeleton-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skeleton-chart {
+        min-height: 200px;
+    }
+
+    .skeleton-controls {
+        flex-wrap: wrap;
+    }
+
+    .skeleton-pill {
+        width: 80px;
+        height: 28px;
+    }
+
+    /* Preset row: wrap on mobile */
+    .preset-row {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .top-preset-btn {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+    .sector-select {
+        font-size: 10px;
+        max-width: 140px;
+    }
+
+    .selection-cap-badge {
+        display: block;
+        margin-left: 0;
+        margin-top: 2px;
+    }
+
+    /* Tooltip: constrain width on mobile, allow wrapping */
+    .chart-tooltip {
+        max-width: 180px;
+        font-size: 11px;
+        white-space: normal;
+    }
+
+    /* Touch targets — increase tap area for mobile */
+    .qp-btn {
+        padding: 6px 10px;
+        min-height: 36px;
+    }
+
+    .qp-sector {
+        padding: 4px 8px;
+        min-height: 36px;
+    }
+
+    .sort-toggle {
+        padding: 4px 6px;
+        min-height: 36px;
+    }
+
+    .guide-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    /* Help modal: full width on mobile */
+    .help-modal {
+        width: 96vw;
+        max-height: 90vh;
+        border-radius: 6px;
+    }
+
+    .help-modal-body {
+        padding: 20px 16px 16px;
+    }
+
+    .help-modal-body .how-to-read-two-col {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .help-modal-body .how-to-read-col-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0;
+    }
+
+    /* Heatmap: allow horizontal scroll */
+    .chart-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Selected companies panel: tighter */
+    .leaderboard-table .color-col {
+        width: 20px;
+    }
+
+    .leaderboard-table .rank-col {
+        width: 30px;
+    }
+
+    .leaderboard-table .score-col {
+        width: 50px;
+    }
+}
+
+/* ── Loading skeleton ── */
+@keyframes skeleton-pulse {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.3; }
+}
+
+.skeleton-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.skeleton-controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.skeleton-pill {
+    width: 110px;
+    height: 32px;
+    background: var(--wsj-dark);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 340px) 1fr;
+    gap: 20px;
+}
+
+.skeleton-panel {
+    border-radius: 6px;
+}
+
+.skeleton-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skeleton-row {
+    height: 36px;
+    background: var(--wsj-dark);
+    border-radius: 4px;
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+.skeleton-right {
+    display: flex;
+    align-items: stretch;
+}
+
+.skeleton-chart {
+    flex: 1;
+    min-height: 360px;
+    background: var(--wsj-dark);
+    border-radius: 6px;
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+/* ── Retry button ── */
+.retry-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 28px;
+    background: var(--wsj-dark);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.retry-btn:hover {
+    background: #333;
+}
+
+/* ── Selection cap badge ── */
+.selection-cap-badge {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 11px;
+    color: var(--wsj-gray);
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* ── Preset row (Top/Bottom 12 + Sector) ── */
+.preset-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 8px 0 4px;
+}
+
+.top-preset-btn {
+    padding: 4px 10px;
+    background: none;
+    color: var(--wsj-dark);
+    border: 1px solid var(--wsj-border);
+    border-radius: 3px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.top-preset-btn:hover {
+    background: var(--bg-cream);
+    border-color: var(--wsj-dark);
+}
+
+.sector-select {
+    padding: 4px 6px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 3px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--wsj-dark);
+    background: var(--wsj-white);
+    cursor: pointer;
+    transition: border-color 0.15s;
+    max-width: 120px;
+    text-overflow: ellipsis;
+}
+
+.sector-select:hover,
+.sector-select:focus {
+    border-color: var(--wsj-dark);
+    outline: none;
+}
+
+/* ── Floating help button (top-right of chart content) ── */
+.help-fab {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 10;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-navy);
+    background: var(--wsj-white);
+    color: var(--primary-navy);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+    line-height: 1;
+    padding: 0;
+}
+
+.help-fab:hover {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    border-color: var(--brand-bright-blue);
+    transform: scale(1.08);
+}
+
+/* ── Help modal overlay ── */
+.help-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(26,43,74,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: helpFadeIn 0.15s ease-out;
+}
+
+@keyframes helpFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.help-modal {
+    position: relative;
+    background: var(--wsj-white);
+    border: 1px solid var(--wsj-border);
+    border-radius: 8px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+    max-width: 680px;
+    width: 90vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: helpSlideUp 0.2s ease-out;
+}
+
+@keyframes helpSlideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.help-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: none;
+    color: var(--wsj-gray);
+    font-size: 24px;
+    font-weight: 300;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.15s, color 0.15s;
+    line-height: 1;
+    padding: 0;
+}
+
+.help-modal-close:hover {
+    background: var(--bg-cream);
+    color: var(--primary-navy);
+}
+
+.help-modal-body {
+    padding: 28px 32px 24px;
+}
+
+.help-modal-body .how-to-read-panel {
+    margin-top: 0;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.help-modal-body .info-panel {
+    margin-top: 0;
+    border: none;
+    background: var(--bg-cream);
+    padding: 16px;
+    border-radius: 4px;
+}
+
+.help-modal-divider {
+    height: 1px;
+    background: var(--wsj-border);
+    margin: 20px 0;
+}

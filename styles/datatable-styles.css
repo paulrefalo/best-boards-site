@@ -1,0 +1,615 @@
+/* WSJ Leadership Institute - Data Table Styles */
+
+/* ─── Controls Section — sticky ─── */
+.dt-controls {
+    background: var(--wsj-white);
+    padding: 6px 40px;
+    border-bottom: 1px solid var(--wsj-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ─── Selector group card ─── */
+.dt-selector-group {
+    background: var(--bg-cream);
+    border: none;
+    border-radius: 6px;
+    padding: 8.5px 10px;
+}
+
+/* Selector layout: buttons left, description text right */
+.dt-selector-group-flow {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 160px;
+    overflow: hidden;
+}
+
+.dt-selector-group-buttons {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.dt-selector-group-buttons .dt-element-selector-wrap {
+    margin-top: 4px;
+}
+
+/* "What's Measured" text */
+.dt-whats-measured-inline {
+    flex: 1 1 200px;
+    min-width: 0;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-gray, #697380);
+    text-align: left;
+    border-left: 2px solid var(--brand-azure, #1138E6);
+    padding-left: 12px;
+    animation: dt-wm-fade-in 0.25s ease both;
+    align-self: center;
+}
+
+.dt-whats-measured-indicator {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--primary-navy, #0A2239);
+}
+
+@keyframes dt-wm-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.dt-selector-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-stone);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    margin-bottom: 8px;
+}
+
+/* ─── Pillar Selector ─── */
+.dt-pillar-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+}
+
+.dt-pillar-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.dt-pillar-btn:hover {
+    background: var(--bg-cream);
+}
+
+.dt-pillar-btn.active {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    border-color: var(--primary-navy);
+}
+
+/* Overall Button — matches pillar buttons, azure fill when active */
+.dt-overall-btn {
+    padding: 5px 14px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.dt-overall-btn:hover {
+    background: var(--bg-cream);
+}
+
+.dt-overall-btn.active {
+    background: var(--brand-azure);
+    color: var(--primary-cream);
+    border-color: var(--brand-azure);
+}
+
+/* ─── Element (Indicator) Selector ─── */
+.dt-element-selector-wrap {
+    margin-top: 4px;
+    padding-top: 0;
+    transition: opacity 0.15s ease;
+}
+
+.dt-element-selector {
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+    margin-top: 0;
+    transition: opacity 0.15s ease;
+}
+
+.dt-element-btn {
+    padding: 4px 12px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--wsj-gray-dark);
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.dt-element-btn:hover {
+    background: var(--bg-cream);
+}
+
+.dt-element-btn.active {
+    background: transparent;
+    border-color: var(--brand-azure);
+    color: var(--primary-navy);
+}
+
+/* ─── Filters Row ─── */
+.dt-filters {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 10px 40px;
+    background: var(--wsj-white);
+    border-bottom: 1px solid var(--wsj-border);
+}
+
+.dt-search-box {
+    flex: 0 0 280px;
+    position: relative;
+}
+
+.dt-search-box input {
+    width: 100%;
+    padding: 7px 12px 7px 34px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-charcoal);
+    transition: border-color 0.2s;
+}
+
+.dt-search-box input:focus {
+    outline: none;
+    border-color: var(--brand-bright-blue);
+    background: var(--wsj-white);
+}
+
+.dt-search-box input::placeholder {
+    color: #AAA6A0;
+}
+
+.dt-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #AAA6A0;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+.dt-sector-filter select {
+    padding: 7px 28px 7px 12px;
+    border: 1px solid var(--wsj-border);
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    background: var(--bg-cream);
+    color: var(--text-charcoal);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23697380'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+.dt-sector-filter select:focus {
+    outline: none;
+    border-color: var(--brand-bright-blue);
+}
+
+.dt-results-count {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--wsj-gray);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+}
+
+/* ─── Table Container ─── */
+.dt-table-container {
+    background: var(--wsj-white);
+    padding: 0 40px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    table-layout: auto;
+}
+
+/* ─── Table Header ─── */
+.dt-table thead th {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    cursor: pointer;
+    user-select: none;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    transition: background 0.15s;
+    vertical-align: bottom;
+}
+
+/* Two-line header (pillar name + rank/score) */
+.dt-th-twoline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    line-height: 1.3;
+}
+
+.dt-th-name {
+    font-weight: 600;
+    font-size: 11px;
+}
+
+.dt-th-sub {
+    font-weight: 400;
+    font-size: 10px;
+    opacity: 0.7;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.dt-table thead th:hover {
+    background: #243A5E;
+}
+
+.dt-table thead th:last-child {
+    border-right: none;
+}
+
+.dt-table thead th.dt-sort-active {
+    background: #2A4570;
+}
+
+.dt-table thead th.dt-highlight-col {
+    background: var(--brand-azure);
+    color: #FFFFFF;
+}
+
+.dt-sort-arrow {
+    display: inline-block;
+    margin-left: 3px;
+    font-size: 9px;
+    opacity: 0.3;
+}
+
+.dt-sort-arrow.active {
+    opacity: 0.9;
+    font-size: 10px;
+}
+
+/* ─── Table Body ─── */
+.dt-table tbody tr {
+    border-bottom: 1px solid var(--grid-lines);
+    transition: background 0.1s;
+}
+
+.dt-table tbody tr:nth-child(even) {
+    background: rgba(250, 248, 243, 0.5);
+}
+
+.dt-table tbody tr:hover {
+    background: rgba(184, 146, 90, 0.08);
+}
+
+.dt-table tbody td {
+    padding: 6px 10px;
+    vertical-align: middle;
+    border-right: 1px solid rgba(0,0,0,0.04);
+}
+
+.dt-table tbody td:last-child {
+    border-right: none;
+}
+
+/* Rank column */
+.dt-col-rank {
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-navy);
+    width: 54px;
+    min-width: 54px;
+}
+
+/* Ticker column */
+.dt-col-ticker {
+    font-weight: 600;
+    color: var(--primary-navy);
+    width: 70px;
+    min-width: 70px;
+    letter-spacing: 0.02em;
+}
+
+/* Company name column */
+.dt-col-name {
+    min-width: 160px;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Sector column */
+.dt-col-sector {
+    min-width: 100px;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--wsj-gray-dark);
+}
+
+/* Overall score field column (compact numeric, no bar) */
+.dt-col-overall-score {
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-navy);
+    font-variant-numeric: tabular-nums;
+    width: 60px;
+    min-width: 60px;
+    font-size: 13px;
+}
+
+/* Pillar rank + score cell (Overall view) */
+.dt-col-pillar-rank-score {
+    min-width: 80px;
+    padding: 6px 8px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+}
+
+.dt-prs-rank {
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-right: 6px;
+}
+
+.dt-prs-sep {
+    color: #B0ACA6;
+    margin: 0 3px;
+    font-weight: 400;
+}
+
+.dt-prs-score {
+    font-weight: 400;
+    color: var(--wsj-gray-dark);
+}
+
+/* Score cell with inline bar */
+.dt-score-cell {
+    position: relative;
+    min-width: 80px;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.dt-score-bar-bg {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    bottom: 2px;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.dt-score-value {
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+}
+
+/* Highlighted indicator column */
+td.dt-highlight-col {
+    background: rgba(17, 56, 230, 0.05);
+}
+
+/* ─── Pagination ─── */
+.dt-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: var(--wsj-white);
+    border-top: 1px solid var(--wsj-border);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+}
+
+.dt-pagination-info {
+    color: var(--wsj-gray);
+}
+
+.dt-pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dt-page-btn {
+    padding: 5px 12px;
+    border: 1px solid var(--wsj-border);
+    background: var(--wsj-white);
+    color: var(--text-charcoal);
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    border-radius: 3px;
+    transition: all 0.15s;
+    min-width: 36px;
+    text-align: center;
+}
+
+.dt-page-btn:hover:not(:disabled) {
+    background: var(--bg-cream);
+    border-color: var(--brand-bright-blue);
+}
+
+.dt-page-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.dt-page-btn.active {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    border-color: var(--brand-bright-blue);
+}
+
+.dt-page-ellipsis {
+    padding: 5px 6px;
+    color: var(--wsj-gray);
+    font-size: 13px;
+}
+
+/* ─── Loading / Error States ─── */
+.dt-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    gap: 16px;
+}
+
+.dt-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--grid-lines);
+    border-top-color: var(--primary-navy);
+    border-radius: 50%;
+    animation: dt-spin 0.8s linear infinite;
+}
+
+@keyframes dt-spin {
+    to { transform: rotate(360deg); }
+}
+
+.dt-loading-text {
+    font-size: 14px;
+    color: var(--wsj-gray);
+}
+
+.dt-error {
+    text-align: center;
+    padding: 60px 40px;
+    color: var(--data-vermillion);
+    font-size: 15px;
+}
+
+.dt-error button {
+    margin-top: 16px;
+    padding: 8px 20px;
+    border: 1px solid var(--data-vermillion);
+    background: transparent;
+    color: var(--data-vermillion);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 1200px) {
+    .dt-selector-group-flow {
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dt-controls {
+        padding: 6px 20px;
+    }
+    .dt-filters {
+        padding: 10px 20px;
+    }
+    .dt-pagination {
+        padding: 12px 20px;
+    }
+    .dt-search-box {
+        flex: 0 0 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .dt-selector-group-flow {
+        min-height: auto;
+    }
+    .dt-controls {
+        padding: 6px 12px;
+    }
+    .dt-filters {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .dt-search-box {
+        flex: 1 1 100%;
+    }
+    .dt-table-container {
+        padding: 0 8px;
+    }
+    .dt-pagination {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+    }
+    .dt-page-btn {
+        padding: 8px 14px;
+        min-height: 40px;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorer | WSJ Best Boards 2026</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../styles/base-styles.css">
+    <link rel="stylesheet" href="../styles/compare-styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/nbl4kqz.css">
+
+    <!-- React, ReactDOM, Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.7/babel.min.js"></script>
+
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Overview-only tweaks: make the radar tile match the white, borderless landscape/bar tiles -->
+    <style>
+        .chart-panel-content .report-card {
+            background: var(--wsj-white);
+            border: none;
+            border-radius: 0;
+            padding: 0;
+        }
+        /* Small gutter between the Dataset Selection bar and the chart area below it */
+        .main-content {
+            padding-top: 5px;
+        }
+        /* Fill the panel white so a short radar tile doesn't reveal a different tone
+           below it when the neighboring bar chart stretches the row taller */
+        .chart-panel,
+        .chart-panel-content {
+            background: var(--wsj-white);
+        }
+        /* These tiles have no toolbar above them here, so restore the top border + full radius
+           (the base .chart-panel omits the top edge on the assumption a toolbar supplies it) */
+        .chart-panel {
+            border-top: 1px solid var(--wsj-border);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Shared constants + components (from the compare page) -->
+    <script type="text/babel" src="../compare/constants.js"></script>
+    <script type="text/babel" src="../compare/chart-utils.js"></script>
+    <script type="text/babel" src="../compare/selected-companies.js"></script>
+    <script type="text/babel" src="../compare/report-cards.js"></script>
+    <script type="text/babel" src="../compare/chart-grouped-bar.js"></script>
+    <script type="text/babel" src="../compare/chart-scatter.js"></script>
+
+    <!-- Overview app root (loads last) -->
+    <script type="text/babel" src="overview.js"></script>
+
+    <footer class="wsjli-footer">
+        <span>&copy; Copyright 2026 Dow Jones &amp; Company, Inc. All Rights Reserved.</span>
+    </footer>
+</body>
+</html>

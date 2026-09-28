@@ -1,0 +1,502 @@
+/* WSJ Leadership Institute - Base Styles & Color Palette */
+
+/* Brand display font — PP Writer Ultralight (uploaded by client) */
+@font-face {
+    font-family: 'PP Writer';
+    src: url('../resources/fonts/PPWriter-Ultralight.woff2') format('woff2'),
+         url('../resources/fonts/PPWriter-Ultralight.woff') format('woff'),
+         url('../resources/fonts/PPWriter-Ultralight.ttf') format('truetype'),
+         url('../resources/fonts/PPWriter-Ultralight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* PP Writer text variant — optical size for smaller headings */
+@font-face {
+    font-family: 'PP Writer';
+    src: url('../resources/fonts/PPWriter-UltralightText.woff2') format('woff2'),
+         url('../resources/fonts/PPWriter-UltralightText.woff') format('woff'),
+         url('../resources/fonts/PPWriter-UltralightText.ttf') format('truetype'),
+         url('../resources/fonts/PPWriter-UltralightText.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0020-007F;
+}
+
+/* Acumin Pro — self-hosted cache (Typekit embed is primary) */
+@font-face {
+    font-family: 'acumin-pro';
+    src: url('../resources/fonts/acumin-pro-normal-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'acumin-pro';
+    src: url('../resources/fonts/acumin-pro-normal-500.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables - Color Palette (WSJLI Brand Toolkit Jan 2026) */
+:root {
+    /* ── Brand Core ── */
+    --primary-navy: #0A2239;      /* Midnight */
+    --brand-azure: #1138E6;       /* Azure — primary accent */
+    --brand-bright-blue: #3197FE; /* Bright Blue — secondary accent */
+    --brand-soft-blue: #ABD6FF;   /* Soft Blue — tint */
+    --brand-linen: #EBE7E1;       /* Linen — surface */
+    --brand-light-linen: #F7F6F5; /* Light Linen — canvas */
+    --brand-forest: #1E4636;      /* Forest Green */
+    --brand-bright-green: #51FF5C;/* Bright Green — pop accent */
+
+    /* Legacy alias — maps gold references to Azure */
+    --primary-gold: #1138E6;
+    --primary-cream: #EBE7E1;
+
+    /* Data Visualization Colors — colorblind-safe (Wong 2011 derived) */
+    --data-blue: #0072B2;
+    --data-vermillion: #D55E00;
+    --data-green: #009E73;
+    --data-amber: #E69F00;
+    --data-sky: #56B4E9;
+    --data-gold: #9B7A2F;
+    --data-slate: #697380;
+
+    /* Surface backgrounds */
+    --bg-paper: #FFFFFF;           /* primary content surface (cards, panels) */
+    --bg-cream: #F7F6F5;          /* page canvas — Light Linen */
+    --bg-cream-2: #EBE7E1;        /* deeper surface — Linen */
+    --bg-cream-3: #E8E6E3;        /* subtle stripe */
+
+    /* Ink */
+    --text-charcoal: #2C2C2C;
+    --ink-gray-dark: #4A4A4A;
+    --ink-gray: #697380;
+    --ink-gray-light: #999999;
+    --ink-stone: #7A7A7A;          /* neutral gray, section tags */
+
+    /* Lines */
+    --grid-lines: #E0DDDA;         /* default border */
+    --line-medium: #C8C5C0;        /* stronger divider between regions */
+
+    /* Shadows */
+    --shadow-sm:      0 1px 4px rgba(0,0,0,0.06);
+    --shadow:         0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:      0 3px 12px rgba(0,0,0,0.10);
+    --shadow-lg:      0 12px 40px rgba(0,0,0,0.20);
+    --shadow-xl:      0 12px 48px rgba(0,0,0,0.25);
+    --shadow-tooltip: 0 3px 12px rgba(0,0,0,0.25);
+
+    /* Motion */
+    --dur-fast: 0.15s;   /* color/opacity: buttons, hovers */
+    --dur:      0.2s;    /* transforms: modal slide-up */
+    --dur-slow: 0.3s;    /* chart bar widths, SVG transitions */
+    --ease:     ease;
+
+    /* Typography families */
+    --font-display: 'PP Writer', 'Crimson Text', Georgia, 'Times New Roman', serif;
+    --font-serif:   'Crimson Text', Georgia, 'Times New Roman', serif;
+    --font-sans:    'acumin-pro', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+    /* Legacy/Semantic Mappings */
+    --wsj-black: var(--text-charcoal);
+    --wsj-gray-dark: var(--ink-gray-dark);
+    --wsj-gray: var(--ink-gray);
+    --wsj-gray-light: var(--ink-gray-light);
+    --wsj-bg: var(--bg-cream);
+    --wsj-white: var(--bg-paper);
+    --wsj-accent: var(--primary-gold);
+    --wsj-blue: var(--primary-navy);
+    --wsj-border: var(--grid-lines);
+    --wsj-dark: var(--text-charcoal);
+    --ink-charcoal: var(--ink-gray-dark);
+    --line-soft: var(--grid-lines);
+    --row-divider: #EEECEB;
+
+    /* Company comparison colors (colorblind-safe) */
+    --baseline-color: var(--data-slate);
+    --company-1: var(--data-blue);
+    --company-2: var(--data-vermillion);
+    --company-3: var(--data-green);
+    --company-4: var(--data-amber);
+    --company-5: var(--data-sky);
+    --company-6: var(--primary-navy);
+    --company-7: var(--data-gold);
+}
+
+/* Typography */
+body {
+    font-family: var(--font-sans);
+    background: var(--bg-cream);
+    color: var(--text-charcoal);
+    line-height: 1.6;
+}
+
+/* H1–H3: PP Writer Ultralight — thin editorial display serif */
+h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 200;
+    line-height: 1.2;
+    color: var(--text-charcoal);
+}
+
+/* H4+: Crimson Text bold for sub-headings */
+h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-charcoal);
+}
+
+/* Layout Components */
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Masthead */
+.masthead {
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    padding: 12px 40px;
+    border-bottom: 3px solid var(--brand-forest);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.masthead-brand {
+    display: flex;
+    align-items: center;
+}
+
+.masthead-logo {
+    height: 20px;
+    width: auto;
+    display: block;
+    filter: brightness(0) invert(1);
+    transform: translateY(2px);   /* optical nudge — SVG bar extends above letter tops */
+}
+
+.masthead-nav {
+    display: flex;
+    gap: 24px;
+}
+
+/* Dow Jones parent-brand logo — right side of masthead */
+.masthead-dj-logo {
+    height: 10px;
+    width: auto;
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+
+.nav-link {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: all var(--dur) var(--ease);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover {
+    color: var(--brand-bright-blue);
+    background: transparent;
+}
+
+.nav-link.active {
+    background: transparent;
+    border-color: transparent;
+    color: #FFFFFF;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-color: #FFFFFF;
+}
+
+/* Locked nav link — visible but inactive before sign-in */
+.nav-link-locked {
+    opacity: 0.28;
+    cursor: default;
+    pointer-events: none;
+}
+
+/* Sign In button — Azure outlined, fills on hover */
+.nav-signin-btn {
+    font-family: var(--font-sans);
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--brand-azure);
+    background: transparent;
+    border: 1px solid var(--brand-azure);
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all var(--dur) var(--ease);
+    margin-left: 8px;
+}
+.nav-signin-btn:hover {
+    background: var(--brand-azure);
+    color: #FFFFFF;
+}
+
+/* Sign Out — quiet text button */
+.nav-signout-btn {
+    font-family: var(--font-sans);
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    background: transparent; border: none;
+    cursor: pointer; padding: 8px 6px;
+    transition: color var(--dur) var(--ease);
+    margin-left: 4px;
+}
+.nav-signout-btn:hover { color: rgba(255,255,255,0.7); }
+
+/* ─── Copyright Footer ─── */
+.wsjli-footer {
+    background: var(--primary-navy, #0A2239);
+    color: rgba(255,255,255,0.45);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    text-align: left;
+    padding: 14px 40px;
+    letter-spacing: 0.02em;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Fixed footer for full-viewport pages (Compare) */
+.wsjli-footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    padding: 6px 40px;
+}
+
+/* Header */
+.header {
+    background: var(--wsj-white);
+    padding: 20px 40px 12px;
+    border-bottom: 1px solid var(--grid-lines);
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.header .subtitle {
+    font-size: 16px;
+    color: var(--wsj-gray);
+    font-style: italic;
+}
+
+/* Page map badge — used in guide modal layout diagram */
+.page-map-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* Section tags — numbered labels on each page section */
+.section-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-stone);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    margin-bottom: 8px;
+}
+
+
+
+.section-tag-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-navy);
+    color: var(--primary-cream);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px;
+    background: var(--wsj-white);
+}
+
+/* Axis Labels */
+.axis-label {
+    font-size: 12px;
+    font-weight: 500;
+    fill: var(--wsj-gray-dark);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+}
+
+/* Chart Axes */
+.axis line,
+.axis path {
+    stroke: var(--grid-lines);
+}
+
+.axis text {
+    font-size: 11px;
+    fill: var(--wsj-gray);
+}
+
+.grid line {
+    stroke: var(--grid-lines);
+    stroke-opacity: 0.5;
+}
+
+/* ─── Responsive: Tablet ─── */
+@media (max-width: 1024px) {
+    .masthead {
+        padding: 16px 20px;
+    }
+
+    .masthead-logo {
+        height: 32px;
+    }
+
+    .masthead-nav {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+        padding: 6px 10px;
+        letter-spacing: 0.3px;
+    }
+
+    .header {
+        padding: 32px 20px 24px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .header .subtitle {
+        font-size: 14px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+/* ─── Responsive: Mobile ─── */
+@media (max-width: 600px) {
+    .masthead {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+        text-align: center;
+    }
+
+    .masthead-nav {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .header {
+        padding: 24px 16px 20px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header .subtitle {
+        font-size: 13px;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+}
+
+/* ── Access Denied page ── */
+.access-denied-body {
+    background: var(--bg-paper);
+    min-height: calc(100vh - 55px - 42px);
+    padding: 60px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.access-denied-content {
+    max-width: none;
+    text-align: left;
+}
+.access-denied-content p {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-charcoal);
+}
+.access-denied-content a {
+    color: var(--brand-azure, #1138E6);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.access-denied-content a:hover {
+    color: var(--primary-navy, #0A2239);
+}
+
+/* ── Selection pulse — brief blue highlight on newly added items ── */
+@keyframes selectionPulse {
+    0%   { box-shadow: inset 0 0 0 2px rgba(17,56,230,0.5); }
+    100% { box-shadow: inset 0 0 0 0 rgba(17,56,230,0); }
+}
+.selection-pulse {
+    animation: selectionPulse 1.4s ease-out forwards;
+}
