@@ -165,20 +165,6 @@ function ScatterPlot({ data, selectedCompanies, selectedPillar, selectedElement,
 
         const tooltip = d3.select(tooltipRef.current);
 
-        // ── Gridlines ──
-        xScale.ticks(8).forEach(t => {
-            svg.append('line')
-                .attr('x1', xScale(t)).attr('x2', xScale(t))
-                .attr('y1', 0).attr('y2', innerH)
-                .attr('stroke', '#E0DDD3').attr('stroke-width', 0.5);
-        });
-        yScale.ticks(8).forEach(t => {
-            svg.append('line')
-                .attr('x1', 0).attr('x2', innerW)
-                .attr('y1', yScale(t)).attr('y2', yScale(t))
-                .attr('stroke', '#E0DDD3').attr('stroke-width', 0.5);
-        });
-
         // ── Axes ──
         const xAxisG = svg.append('g').attr('transform', `translate(0,${innerH})`).call(d3.axisBottom(xScale).ticks(8));
         xAxisG.select('.domain').attr('stroke', '#C8C2B6');
