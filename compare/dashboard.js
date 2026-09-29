@@ -370,10 +370,16 @@ function Dashboard() {
             {renderMasthead()}
 
             <div className="header">
-                <h1>WSJ Best Boards 2026</h1>
-                <p className="subtitle">
-                    See how individual boards stack up to all the others
-                </p>
+                <div className="header-titles">
+                    <h1>WSJ Best Boards 2026</h1>
+                    <p className="subtitle">
+                        See how individual boards stack up to all the others
+                    </p>
+                </div>
+                <div className="header-sponsor">
+                    <span className="sponsor-label">Sponsored by</span>
+                    <img src="../resources/hs-box-logo.png" alt="Heidrick & Struggles" />
+                </div>
             </div>
 
             <div className="app-frame">

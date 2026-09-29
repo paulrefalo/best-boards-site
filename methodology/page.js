@@ -187,6 +187,10 @@ function MethodologyPage() {
 
             <div className="header">
                 <h1>WSJ Best Boards 2026</h1>
+                <div className="header-sponsor">
+                    <span className="sponsor-label">Sponsored by</span>
+                    <img src="../resources/hs-box-logo.png" alt="Heidrick & Struggles" />
+                </div>
             </div>
 
             <div className="content-body content-wide">

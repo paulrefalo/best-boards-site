@@ -300,6 +300,33 @@ h4, h5, h6 {
     background: var(--wsj-white);
     padding: 20px 40px 12px;
     border-bottom: 1px solid var(--grid-lines);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Sponsor lockup, right side of the page header */
+.header-sponsor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-sponsor .sponsor-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wsj-gray);
+    font-family: 'acumin-pro', 'IBM Plex Sans', sans-serif;
+    white-space: nowrap;
+}
+
+.header-sponsor img {
+    height: 38px;
+    width: auto;
+    display: block;
 }
 
 .header h1 {

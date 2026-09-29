@@ -1,7 +1,7 @@
 /**
  * Scatter Plot — Overall (x) vs Selected Pillar/Indicator (y)
  * Dot size: log(market cap). Dot color: GICS sector (colorblind-safe).
- * Selected companies highlighted with labels. Quadrant lines at 50,50.
+ * Selected companies highlighted with labels.
  * Sector dropdown for focus filtering.
  */
 
@@ -178,25 +178,6 @@ function ScatterPlot({ data, selectedCompanies, selectedPillar, selectedElement,
                 .attr('y1', yScale(t)).attr('y2', yScale(t))
                 .attr('stroke', '#E0DDD3').attr('stroke-width', 0.5);
         });
-
-        // ── Quadrant guides at the t-score average (50, 50) ──
-        const x50 = xScale(50), y50 = yScale(50);
-        const inX = x50 >= 0 && x50 <= innerW, inY = y50 >= 0 && y50 <= innerH;
-        if (inX) svg.append('line')
-            .attr('x1', x50).attr('x2', x50).attr('y1', 0).attr('y2', innerH)
-            .attr('stroke', '#0A2239').attr('stroke-width', 1).attr('opacity', 0.38)
-            .attr('stroke-dasharray', '5,3');
-        if (inY) svg.append('line')
-            .attr('x1', 0).attr('x2', innerW).attr('y1', y50).attr('y2', y50)
-            .attr('stroke', '#0A2239').attr('stroke-width', 1).attr('opacity', 0.38)
-            .attr('stroke-dasharray', '5,3');
-        // "avg (50)" markers on each guide
-        if (inX) svg.append('text').attr('x', x50 + 4).attr('y', 10)
-            .attr('font-size', '9px').attr('font-family', 'acumin-pro, IBM Plex Sans, sans-serif')
-            .attr('fill', '#0A2239').attr('opacity', 0.5).text('avg 50');
-        if (inY) svg.append('text').attr('x', innerW - 4).attr('y', y50 - 4).attr('text-anchor', 'end')
-            .attr('font-size', '9px').attr('font-family', 'acumin-pro, IBM Plex Sans, sans-serif')
-            .attr('fill', '#0A2239').attr('opacity', 0.5).text('avg 50');
 
         // ── Axes ──
         const xAxisG = svg.append('g').attr('transform', `translate(0,${innerH})`).call(d3.axisBottom(xScale).ticks(8));
