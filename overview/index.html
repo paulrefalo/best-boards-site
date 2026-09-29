@@ -59,6 +59,13 @@
             display: block;
             margin: 0 auto;
         }
+        /* The report card reserves a fixed 110px header; here it holds only a few lines, leaving a gap
+           that pushes the radar down. Let it size to content so the radar sits just under the title. */
+        .chart-panel-content .report-card-header {
+            min-height: 0;
+            height: auto;
+            margin-bottom: 2px;
+        }
     </style>
 </head>
 <body>
