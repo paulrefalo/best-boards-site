@@ -46,6 +46,19 @@
             border-top: 1px solid var(--wsj-border);
             border-radius: 4px;
         }
+        /* Let the radar scale to fill its tile (it was fixed-width and left slack), capped so it
+           doesn't grow unbounded on very wide screens. */
+        .chart-panel-content .report-card,
+        .chart-panel-content .report-card-chart {
+            width: 100%;
+        }
+        .chart-panel-content .report-card-chart svg {
+            width: 100%;
+            height: auto;
+            max-width: 380px;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
