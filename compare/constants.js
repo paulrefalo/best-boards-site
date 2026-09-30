@@ -36,19 +36,19 @@ const PILLAR_ELEMENTS = {
     'Group Dynamics': {
         name: 'Group Dynamics',
         elements: {
-            'Deference': { name: 'Deference', description: 'Whether the board is free to dissent from management' },
-            'Board Dissimilarity': { name: 'Board Dissimilarity', description: 'How different directors are from one another in background and connections' },
-            'Industry expertise': { name: 'Industry expertise', description: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range' }
+            'Deference': { name: 'Deference', description: 'This assesses the likelihood that dissent against management would be difficult given the social and economic dynamics of the board.' },
+            'Similarity': { name: 'Similarity', description: 'Using demographic markers (race, gender, age), experience markers (roles, knowledge, schooling) and connections (overlapping networks), this examines where a board may have a blind spot because of similarities that could negate fresh perspectives.' },
+            'Industry Expertise': { name: 'Industry Expertise', description: 'Using a large language model, a company’s latest proxy statement was examined to determine how much relevant industry experience or expertise each board member has.' }
         }
     },
     'Governance & Risk': {
         name: 'Governance & Risk',
         elements: {
-            'Governance score': { name: 'Governance score', description: 'Overall quality of the board\'s composition, structure and practices' },
-            'Audit & Litigation Soundness': { name: 'Audit & Litigation Soundness', description: 'Freedom from audit red flags and notable litigation' },
-            'Controversy Avoidance': { name: 'Controversy Avoidance', description: 'Freedom from significant ESG controversies' },
-            'Activist Resilience': { name: 'Activist Resilience', description: 'How resistant the board is to activist investor campaigns' },
-            'Shareholder Support': { name: 'Shareholder Support', description: 'Shareholder vote support for directors in their most recent election' }
+            'Governance Score': { name: 'Governance Score', description: 'Twenty different data points were used to assess the composition of the board and its committees, with an eye on a company’s decision-making ability, transparency and accountability, as well as its level of governance risk.' },
+            'Audit and Litigation Risk': { name: 'Audit and Litigation Risk', description: 'This assesses whether a company has any notable open litigation in various areas (environmental, labor, regulatory, shareholder actions, etc.) and any red flags related to its audits (financial restatements, change in accounting estimates, inordinately high audit fees, etc.).' },
+            'Controversy Rating': { name: 'Controversy Rating', description: 'This assesses a company’s involvement in incidents with negative environmental, social and governance implications, with a focus on the impact to stakeholders and the financial risk to the company.' },
+            'Activist Vulnerability': { name: 'Activist Vulnerability', description: 'A multiple logistic regression analysis of activist investor investment was used to assess the likelihood that a company becomes a target.' },
+            'Shareholder Support': { name: 'Shareholder Support', description: 'The vote tallies for each board member during their most recent election were averaged, and a graduated penalty was applied for totals under 90%.' }
         }
     },
     'Financial': {
@@ -83,8 +83,8 @@ const PILLAR_ORDER = [
 // Canonical indicator order per pillar.
 const INDICATOR_ORDER = {
     'Knowledge & Experience': ['AI & Technology', 'Executive Leadership', 'Innovation', 'International', 'Regulatory & Legal', 'Financial Expertise'],
-    'Group Dynamics': ['Deference', 'Board Dissimilarity', 'Industry expertise'],
-    'Governance & Risk': ['Governance score', 'Audit & Litigation Soundness', 'Controversy Avoidance', 'Activist Resilience', 'Shareholder Support'],
+    'Group Dynamics': ['Deference', 'Similarity', 'Industry Expertise'],
+    'Governance & Risk': ['Governance Score', 'Audit and Litigation Risk', 'Controversy Rating', 'Activist Vulnerability', 'Shareholder Support'],
     'Financial': ['3-Yr Excess Return (Industry)', '10-Yr Excess Return (Industry)'],
     'Future Fitness': ['AI Readiness', 'Innovation', 'Talent Readiness', 'Financial Fitness', 'Resilience', 'Agility'],
 };
@@ -123,37 +123,37 @@ const WHATS_MEASURED = {
     'Group Dynamics': {
         'Deference': {
             provider: 'Free Float Analytics',
-            measured: 'Whether the board is free to dissent from management.',
+            measured: 'This assesses the likelihood that dissent against management would be difficult given the social and economic dynamics of the board.',
         },
-        'Board Dissimilarity': {
+        'Similarity': {
             provider: 'Free Float Analytics',
-            measured: 'How different directors are from one another in background and connections.',
+            measured: 'Using demographic markers (race, gender, age), experience markers (roles, knowledge, schooling) and connections (overlapping networks), this examines where a board may have a blind spot because of similarities that could negate fresh perspectives.',
         },
-        'Industry expertise': {
+        'Industry Expertise': {
             provider: 'Bendable Labs (skills matrix)',
-            measured: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range.',
+            measured: 'Using a large language model, a company’s latest proxy statement was examined to determine how much relevant industry experience or expertise each board member has.',
         },
     },
     'Governance & Risk': {
-        'Governance score': {
+        'Governance Score': {
             provider: 'Diligent',
-            measured: 'Overall quality of the board\'s composition, structure and practices.',
+            measured: 'Twenty different data points were used to assess the composition of the board and its committees, with an eye on a company’s decision-making ability, transparency and accountability, as well as its level of governance risk.',
         },
-        'Audit & Litigation Soundness': {
+        'Audit and Litigation Risk': {
             provider: 'Ideagen',
-            measured: 'Freedom from audit red flags and notable open litigation.',
+            measured: 'This assesses whether a company has any notable open litigation in various areas (environmental, labor, regulatory, shareholder actions, etc.) and any red flags related to its audits (financial restatements, change in accounting estimates, inordinately high audit fees, etc.).',
         },
-        'Controversy Avoidance': {
+        'Controversy Rating': {
             provider: 'Sustainalytics',
-            measured: 'Freedom from significant ESG controversies.',
+            measured: 'This assesses a company’s involvement in incidents with negative environmental, social and governance implications, with a focus on the impact to stakeholders and the financial risk to the company.',
         },
-        'Activist Resilience': {
+        'Activist Vulnerability': {
             provider: 'Diligent (DMI)',
-            measured: 'How resistant the board is to activist investor campaigns.',
+            measured: 'A multiple logistic regression analysis of activist investor investment was used to assess the likelihood that a company becomes a target.',
         },
         'Shareholder Support': {
             provider: 'Diligent',
-            measured: 'Shareholder vote support for directors in their most recent election.',
+            measured: 'The vote tallies for each board member during their most recent election were averaged, and a graduated penalty was applied for totals under 90%.',
         },
     },
     'Financial': {
