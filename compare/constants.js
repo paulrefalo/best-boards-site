@@ -1,5 +1,5 @@
 /**
- * WSJ Best Boards 2026 — Board Comparison Dashboard
+ * Best Boards 2026 — Board Comparison Dashboard
  * React constants: pillar/indicator definitions, colors, and "what's measured" copy.
  * Pillar keys and indicator keys MUST match boards_dashboard_data.json exactly.
  */

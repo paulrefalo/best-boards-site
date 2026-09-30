@@ -131,7 +131,7 @@ function Overview() {
             {renderMasthead()}
 
             <div className="header">
-                <h1>WSJ Best Boards 2026</h1>
+                <h1>Best Boards 2026</h1>
                 <div className="header-sponsor">
                     <span className="sponsor-label">Sponsored by</span>
                     <img src="../resources/hs-box-logo.png" alt="Heidrick & Struggles" />
@@ -222,23 +222,8 @@ function Overview() {
                         />
                     </div>
 
-                    {/* Right: two rows — landscape on top; bar + radar below */}
+                    {/* Right: two plots — bar comparison + radar of the active board */}
                     <div className="right-panel">
-                        <div className="chart-panel" style={{ marginBottom: '12px' }}>
-                            <div className="chart-panel-content" style={{ position: 'relative' }}>
-                                <ScatterPlot
-                                    data={data}
-                                    selectedCompanies={selectedCompanies}
-                                    selectedPillar={selectedPillar}
-                                    selectedElement={selectedElement}
-                                    shouldAnimate={shouldAnimate}
-                                    onSelectActive={onSelectActive}
-                                    activeTicker={activeTicker}
-                                    heightFactor={2 / 3}
-                                />
-                            </div>
-                        </div>
-
                         <div style={{ display: 'flex', gap: '12px', alignItems: 'stretch', flexWrap: 'wrap' }}>
                             <div className="chart-panel" style={{ flex: '1 1 340px', minWidth: '300px' }}>
                                 <div className="chart-panel-content">
@@ -272,7 +257,7 @@ function Overview() {
                                             />
                                         </div>
                                     ) : (
-                                        <div className="empty-state"><p>Click a board in the Landscape (or a row in the selected list) to see its profile.</p></div>
+                                        <div className="empty-state"><p>Click a board in the selected list to see its profile.</p></div>
                                     )}
                                 </div>
                             </div>

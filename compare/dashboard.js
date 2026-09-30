@@ -317,7 +317,7 @@ function Dashboard() {
             <div className="dashboard">
                 {renderMasthead()}
                 <div className="header">
-                    <h1>WSJ Best Boards 2026</h1>
+                    <h1>Best Boards 2026</h1>
                     <p className="subtitle">Loading dashboard data…</p>
                 </div>
                 <div className="skeleton-container">
@@ -371,7 +371,7 @@ function Dashboard() {
 
             <div className="header">
                 <div className="header-titles">
-                    <h1>WSJ Best Boards 2026</h1>
+                    <h1>Best Boards 2026</h1>
                     <p className="subtitle">
                         See how individual boards stack up to all the others
                     </p>
