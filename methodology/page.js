@@ -187,9 +187,9 @@ function MethodologyPage() {
 
             <div className="header">
                 <h1>Best Boards 2026</h1>
-                <div className="header-sponsor">
-                    <span className="sponsor-label">Sponsored by</span>
-                    <img src="../resources/hs-box-logo.png?v=1" alt="Heidrick & Struggles" />
+                <div className="header-partner">
+                    <span className="partner-label">Sponsored by</span>
+                    <img src="../resources/hs-box-logo.png" alt="Heidrick & Struggles" />
                 </div>
             </div>
 

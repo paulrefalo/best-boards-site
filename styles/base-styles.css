@@ -307,14 +307,15 @@ h4, h5, h6 {
     flex-wrap: wrap;
 }
 
-/* Sponsor lockup, right side of the page header */
-.header-sponsor {
+/* Partner lockup, right side of the page header (class name avoids "sponsor" so ad/content
+   blockers don't hide it with their generic *sponsor* cosmetic filters) */
+.header-partner {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.header-sponsor .sponsor-label {
+.header-partner .partner-label {
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -323,7 +324,7 @@ h4, h5, h6 {
     white-space: nowrap;
 }
 
-.header-sponsor img {
+.header-partner img {
     height: 38px;
     width: auto;
     display: block;

@@ -376,9 +376,9 @@ function Dashboard() {
                         See how individual boards stack up to all the others
                     </p>
                 </div>
-                <div className="header-sponsor">
-                    <span className="sponsor-label">Sponsored by</span>
-                    <img src="../resources/hs-box-logo.png?v=1" alt="Heidrick & Struggles" />
+                <div className="header-partner">
+                    <span className="partner-label">Sponsored by</span>
+                    <img src="../resources/hs-box-logo.png" alt="Heidrick & Struggles" />
                 </div>
             </div>
 
