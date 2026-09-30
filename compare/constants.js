@@ -25,50 +25,50 @@ const PILLAR_ELEMENTS = {
     'Knowledge & Experience': {
         name: 'Knowledge & Experience',
         elements: {
-            'AI & Technology': { name: 'AI & Technology', description: 'Density of directors with AI and technology expertise' },
-            'Executive Leadership': { name: 'Executive Leadership', description: 'Density of directors with CEO/CFO or senior operating experience' },
-            'Innovation': { name: 'Innovation', description: 'Density of directors with innovation, R&D or product backgrounds' },
-            'International': { name: 'International', description: 'Density of directors with global or cross-border experience' },
-            'Regulatory & Legal': { name: 'Regulatory & Legal', description: 'Density of directors with regulatory, legal or compliance expertise' },
-            'Financial Expertise': { name: 'Financial Expertise', description: 'Density of directors with financial, accounting or investing expertise' }
+            'AI & Technology': { name: 'AI & Technology', description: 'Share of directors with AI/technology experience or expertise' },
+            'Executive Leadership': { name: 'Executive Leadership', description: 'Share of directors with executive leadership experience' },
+            'Innovation': { name: 'Innovation', description: 'Share of directors with innovation experience or expertise' },
+            'International': { name: 'International', description: 'Share of directors with international experience or expertise' },
+            'Regulatory & Legal': { name: 'Regulatory & Legal', description: 'Share of directors with regulatory/legal experience or expertise' },
+            'Financial Expertise': { name: 'Financial Expertise', description: 'Share of directors with financial experience or expertise' }
         }
     },
     'Group Dynamics': {
         name: 'Group Dynamics',
         elements: {
-            'Investor Deference': { name: 'Investor Deference', description: 'Degree to which the board is grounded and non-deferential (investor trust signal)' },
-            'Board Dissimilarity': { name: 'Board Dissimilarity', description: 'How un-alike directors are to one another — less similarity guards against an echo chamber' },
-            'Sector Sweet-Spot': { name: 'Sector Sweet-Spot', description: 'Share of directors with sector expertise sits in the credible-but-not-insular sweet spot' }
+            'Deference': { name: 'Deference', description: 'Whether the board is free to dissent from management' },
+            'Board Dissimilarity': { name: 'Board Dissimilarity', description: 'How different directors are from one another in background and connections' },
+            'Industry expertise': { name: 'Industry expertise', description: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range' }
         }
     },
     'Governance & Risk': {
         name: 'Governance & Risk',
         elements: {
-            'Board Governance': { name: 'Board Governance', description: 'Board-governance quality score' },
-            'Audit & Litigation Risk': { name: 'Audit & Litigation Risk', description: 'Audit and litigation risk exposure (higher = lower risk)' },
-            'Controversy': { name: 'Controversy', description: 'Company controversy level (higher = fewer/less severe controversies)' },
-            'Activist Resilience': { name: 'Activist Resilience', description: 'Resilience to activist campaigns (higher = less vulnerable)' },
-            'Shareholder Support': { name: 'Shareholder Support', description: 'Shareholder vote support for directors, scored on a penalty threshold' }
+            'Governance score': { name: 'Governance score', description: 'Overall quality of the board\'s composition, structure and practices' },
+            'Audit & Litigation Soundness': { name: 'Audit & Litigation Soundness', description: 'Freedom from audit red flags and notable litigation' },
+            'Controversy Avoidance': { name: 'Controversy Avoidance', description: 'Freedom from significant ESG controversies' },
+            'Activist Resilience': { name: 'Activist Resilience', description: 'How resistant the board is to activist investor campaigns' },
+            'Shareholder Support': { name: 'Shareholder Support', description: 'Shareholder vote support for directors in their most recent election' }
         }
     },
     'Financial': {
         name: 'Financial',
         elements: {
-            '3-Yr Excess Return (Industry)': { name: '3-Yr Excess Return (Industry)', description: '3-year total shareholder return in excess of the GICS industry-group benchmark' },
-            '10-Yr Excess Return (Industry)': { name: '10-Yr Excess Return (Industry)', description: '10-year total shareholder return in excess of the GICS industry-group benchmark' },
-            '3-Yr Excess Return (S&P 500)': { name: '3-Yr Excess Return (S&P 500)', description: '3-year total shareholder return in excess of the S&P 500 (reported for context)' },
-            '10-Yr Excess Return (S&P 500)': { name: '10-Yr Excess Return (S&P 500)', description: '10-year total shareholder return in excess of the S&P 500 (reported for context)' }
+            '3-Yr Excess Return (Industry)': { name: '3-Yr Excess Return (Industry)', description: '3-year total shareholder return vs the company\'s industry-group peers' },
+            '10-Yr Excess Return (Industry)': { name: '10-Yr Excess Return (Industry)', description: '10-year total shareholder return vs the company\'s industry-group peers' },
+            '3-Yr Excess Return (S&P 500)': { name: '3-Yr Excess Return (S&P 500)', description: '3-year total shareholder return vs the S&P 500' },
+            '10-Yr Excess Return (S&P 500)': { name: '10-Yr Excess Return (S&P 500)', description: '10-year total shareholder return vs the S&P 500' }
         }
     },
     'Future Fitness': {
         name: 'Future Fitness',
         elements: {
-            'AI Readiness': { name: 'AI Readiness', description: 'How prepared the company is to adopt and scale AI (WSJ Best Companies for the Future)' },
-            'Innovation': { name: 'Innovation', description: 'Capacity for breakthrough thinking — R&D, patents, frontier skills' },
-            'Talent Readiness': { name: 'Talent Readiness', description: 'Ability to attract, develop and retain talent' },
-            'Financial Fitness': { name: 'Financial Fitness', description: 'Financial health and forward momentum' },
-            'Resilience': { name: 'Resilience', description: 'Ability to withstand disruption — supply chain, geopolitical, climate' },
-            'Agility': { name: 'Agility', description: 'Organizational speed, adaptability and culture' }
+            'AI Readiness': { name: 'AI Readiness', description: 'How prepared the company is to adopt and scale AI' },
+            'Innovation': { name: 'Innovation', description: 'The company\'s capacity for innovation' },
+            'Talent Readiness': { name: 'Talent Readiness', description: 'How well the company attracts, develops and retains talent' },
+            'Financial Fitness': { name: 'Financial Fitness', description: 'The company\'s financial health and momentum' },
+            'Resilience': { name: 'Resilience', description: 'The company\'s ability to withstand disruption' },
+            'Agility': { name: 'Agility', description: 'The company\'s organizational speed and adaptability' }
         }
     }
 };
@@ -85,8 +85,8 @@ const PILLAR_ORDER = [
 // Canonical indicator order per pillar.
 const INDICATOR_ORDER = {
     'Knowledge & Experience': ['AI & Technology', 'Executive Leadership', 'Innovation', 'International', 'Regulatory & Legal', 'Financial Expertise'],
-    'Group Dynamics': ['Investor Deference', 'Board Dissimilarity', 'Sector Sweet-Spot'],
-    'Governance & Risk': ['Board Governance', 'Audit & Litigation Risk', 'Controversy', 'Activist Resilience', 'Shareholder Support'],
+    'Group Dynamics': ['Deference', 'Board Dissimilarity', 'Industry expertise'],
+    'Governance & Risk': ['Governance score', 'Audit & Litigation Soundness', 'Controversy Avoidance', 'Activist Resilience', 'Shareholder Support'],
     'Financial': ['3-Yr Excess Return (Industry)', '10-Yr Excess Return (Industry)', '3-Yr Excess Return (S&P 500)', '10-Yr Excess Return (S&P 500)'],
     'Future Fitness': ['AI Readiness', 'Innovation', 'Talent Readiness', 'Financial Fitness', 'Resilience', 'Agility'],
 };
@@ -99,107 +99,107 @@ const WHATS_MEASURED = {
     'Knowledge & Experience': {
         'AI & Technology': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'A large language model read each director’s biography to flag AI and technology expertise. The board’s score is the share of directors carrying that skill (per-director density).',
+            measured: 'Share of directors with AI/technology experience or expertise.',
         },
         'Executive Leadership': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'Directors with top-operating experience — chief executive, chief financial or comparable senior leadership roles — were identified from their bios, and the board’s score reflects how prevalent that experience is.',
+            measured: 'Share of directors with executive leadership experience.',
         },
         'Innovation': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'Directors with innovation, research-and-development or product-building backgrounds were flagged, and the board scored on how many of its members bring that experience.',
+            measured: 'Share of directors with innovation experience or expertise.',
         },
         'International': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'Directors with meaningful international or cross-border experience were identified, and the board scored on the density of that global perspective.',
+            measured: 'Share of directors with international experience or expertise.',
         },
         'Regulatory & Legal': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'Directors with regulatory, legal or compliance expertise were flagged from their bios, and the board scored on how well represented that expertise is.',
+            measured: 'Share of directors with regulatory/legal experience or expertise.',
         },
         'Financial Expertise': {
             provider: 'Bendable Labs (LLM read of proxy bios)',
-            measured: 'Directors with financial, accounting or investing expertise were identified, and the board scored on the prevalence of that financial acumen.',
+            measured: 'Share of directors with financial experience or expertise.',
         },
     },
     'Group Dynamics': {
-        'Investor Deference': {
+        'Deference': {
             provider: 'Free Float Analytics',
-            measured: 'A measure of how deferential the board is toward management. Low deference signals independent-minded directors and is read as a sign of investor trust; the metric weights 40% of the pillar.',
+            measured: 'Whether the board is free to dissent from management. Weights 40% of the pillar.',
         },
         'Board Dissimilarity': {
             provider: 'Free Float Analytics',
-            measured: 'How different directors are from one another across background and profile. Less similarity guards against an insider echo chamber, so more dissimilar boards score higher; it weights 30% of the pillar.',
+            measured: 'How different directors are from one another in background and connections. Weights 30% of the pillar.',
         },
-        'Sector Sweet-Spot': {
+        'Industry expertise': {
             provider: 'Bendable Labs (skills matrix)',
-            measured: 'The share of the board with deep sector expertise. Boards score best when roughly a third to a half of directors are sector experts — enough to be credible without becoming an insider echo chamber; it weights 30% of the pillar.',
+            measured: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range. Weights 30% of the pillar.',
         },
     },
     'Governance & Risk': {
-        'Board Governance': {
+        'Governance score': {
             provider: 'Diligent',
-            measured: 'Diligent’s board-governance quality score, capturing board structure and practices. It carries the largest weight in the pillar (30%).',
+            measured: 'Overall quality of the board\'s composition, structure and practices. Weights 30% of the pillar.',
         },
-        'Audit & Litigation Risk': {
+        'Audit & Litigation Soundness': {
             provider: 'Ideagen',
-            measured: 'An assessment of audit and litigation risk. Scored so that lower risk earns a higher mark; it weights 25% of the pillar.',
+            measured: 'Freedom from audit red flags and notable open litigation. Weights 25% of the pillar.',
         },
-        'Controversy': {
+        'Controversy Avoidance': {
             provider: 'Sustainalytics',
-            measured: 'The level and severity of company controversies. Fewer and less-severe controversies score higher; the metric weights 20% of the pillar.',
+            measured: 'Freedom from significant ESG controversies. Weights 20% of the pillar.',
         },
         'Activist Resilience': {
             provider: 'Diligent (DMI)',
-            measured: 'Diligent’s activist-vulnerability measure, expressed so that boards less exposed to activist campaigns score higher. It weights 15% of the pillar.',
+            measured: 'How resistant the board is to activist investor campaigns. Weights 15% of the pillar.',
         },
         'Shareholder Support': {
             provider: 'Diligent',
-            measured: 'Shareholder vote support for directors, scored as a penalty threshold — full marks at 90%+ support, declining toward zero by 70%. It weights 10% of the pillar.',
+            measured: 'Shareholder vote support for directors in their most recent election. Weights 10% of the pillar.',
         },
     },
     'Financial': {
         '3-Yr Excess Return (Industry)': {
             provider: 'FactSet',
-            measured: 'Three-year total shareholder return measured against the company’s GICS industry-group benchmark, so credit reflects out-performance of true peers rather than a hot sector.',
+            measured: 'Three-year total shareholder return vs the company\'s industry-group peers.',
         },
         '10-Yr Excess Return (Industry)': {
             provider: 'FactSet',
-            measured: 'Ten-year total shareholder return measured against the company’s GICS industry-group benchmark — the long-horizon view of peer-relative performance.',
+            measured: 'Ten-year total shareholder return vs the company\'s industry-group peers.',
         },
         '3-Yr Excess Return (S&P 500)': {
             provider: 'FactSet',
-            measured: 'Three-year total shareholder return in excess of the S&P 500. Computed for context; it carries no weight in the pillar score, which is 100% industry-relative.',
+            measured: 'Three-year total shareholder return vs the S&P 500.',
         },
         '10-Yr Excess Return (S&P 500)': {
             provider: 'FactSet',
-            measured: 'Ten-year total shareholder return in excess of the S&P 500. Computed for context; it carries no weight in the pillar score, which is 100% industry-relative.',
+            measured: 'Ten-year total shareholder return vs the S&P 500.',
         },
     },
     'Future Fitness': {
         'AI Readiness': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'How prepared the company is to adopt and scale AI, from board-level governance and spending to workforce readiness and digital positioning.',
+            measured: 'How prepared the company is to adopt and scale AI.',
         },
         'Innovation': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'The company’s capacity for breakthrough thinking, including R&D investment, patent strength, frontier skills and an innovation-friendly culture.',
+            measured: 'The company\'s capacity for innovation.',
         },
         'Talent Readiness': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'How well the company attracts, develops and retains talent — workplace flexibility, employee wellbeing, skills-based hiring and Gen Z appeal.',
+            measured: 'How well the company attracts, develops and retains talent.',
         },
         'Financial Fitness': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'Financial health and forward momentum — balance-sheet strength, profitability, growth trajectory and competitive position.',
+            measured: 'The company\'s financial health and momentum.',
         },
         'Resilience': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'The company’s ability to withstand disruption, from supply-chain readiness and geopolitical risk to climate-transition alignment.',
+            measured: 'The company\'s ability to withstand disruption.',
         },
         'Agility': {
             provider: 'WSJ Best Companies for the Future',
-            measured: 'Organizational speed and adaptability through overhead efficiency, adaptive culture and values-driven leadership.',
+            measured: 'The company\'s organizational speed and adaptability.',
         },
     },
 };
