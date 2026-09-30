@@ -55,9 +55,7 @@ const PILLAR_ELEMENTS = {
         name: 'Financial',
         elements: {
             '3-Yr Excess Return (Industry)': { name: '3-Yr Excess Return (Industry)', description: '3-year total shareholder return vs the company\'s industry-group peers' },
-            '10-Yr Excess Return (Industry)': { name: '10-Yr Excess Return (Industry)', description: '10-year total shareholder return vs the company\'s industry-group peers' },
-            '3-Yr Excess Return (S&P 500)': { name: '3-Yr Excess Return (S&P 500)', description: '3-year total shareholder return vs the S&P 500' },
-            '10-Yr Excess Return (S&P 500)': { name: '10-Yr Excess Return (S&P 500)', description: '10-year total shareholder return vs the S&P 500' }
+            '10-Yr Excess Return (Industry)': { name: '10-Yr Excess Return (Industry)', description: '10-year total shareholder return vs the company\'s industry-group peers' }
         }
     },
     'Future Fitness': {
@@ -87,7 +85,7 @@ const INDICATOR_ORDER = {
     'Knowledge & Experience': ['AI & Technology', 'Executive Leadership', 'Innovation', 'International', 'Regulatory & Legal', 'Financial Expertise'],
     'Group Dynamics': ['Deference', 'Board Dissimilarity', 'Industry expertise'],
     'Governance & Risk': ['Governance score', 'Audit & Litigation Soundness', 'Controversy Avoidance', 'Activist Resilience', 'Shareholder Support'],
-    'Financial': ['3-Yr Excess Return (Industry)', '10-Yr Excess Return (Industry)', '3-Yr Excess Return (S&P 500)', '10-Yr Excess Return (S&P 500)'],
+    'Financial': ['3-Yr Excess Return (Industry)', '10-Yr Excess Return (Industry)'],
     'Future Fitness': ['AI Readiness', 'Innovation', 'Talent Readiness', 'Financial Fitness', 'Resilience', 'Agility'],
 };
 
@@ -166,14 +164,6 @@ const WHATS_MEASURED = {
         '10-Yr Excess Return (Industry)': {
             provider: 'FactSet',
             measured: 'Ten-year total shareholder return vs the company\'s industry-group peers.',
-        },
-        '3-Yr Excess Return (S&P 500)': {
-            provider: 'FactSet',
-            measured: 'Three-year total shareholder return vs the S&P 500.',
-        },
-        '10-Yr Excess Return (S&P 500)': {
-            provider: 'FactSet',
-            measured: 'Ten-year total shareholder return vs the S&P 500.',
         },
     },
     'Future Fitness': {
