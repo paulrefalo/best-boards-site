@@ -166,12 +166,18 @@ function Overview() {
                                                             {PILLAR_ELEMENTS[pillar].name}
                                                         </button>
                                                     ))}
+                                                    <button
+                                                        className={`overall-btn ${selectedPillar === 'Overall Board Score' ? 'active' : ''}`}
+                                                        onClick={() => { setSelectedPillar('Overall Board Score'); setSelectedElement(null); }}
+                                                    >
+                                                        Overall Board Score
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div className="indicator-float" style={showElements ? {} : { visibility: 'hidden' }}>
                                                 <div className="selector-group-label">Indicator</div>
                                                 <div className="element-selector">
-                                                    {(INDICATOR_ORDER[displayPillar] || Object.keys(PILLAR_ELEMENTS[displayPillar].elements)).map(element => (
+                                                    {(PILLAR_ELEMENTS[displayPillar] ? (INDICATOR_ORDER[displayPillar] || Object.keys(PILLAR_ELEMENTS[displayPillar].elements)) : []).map(element => (
                                                         <button
                                                             key={element}
                                                             className={`element-btn ${selectedElement === element ? 'active' : ''}`}
