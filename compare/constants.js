@@ -125,37 +125,37 @@ const WHATS_MEASURED = {
     'Group Dynamics': {
         'Deference': {
             provider: 'Free Float Analytics',
-            measured: 'Whether the board is free to dissent from management. Weights 40% of the pillar.',
+            measured: 'Whether the board is free to dissent from management.',
         },
         'Board Dissimilarity': {
             provider: 'Free Float Analytics',
-            measured: 'How different directors are from one another in background and connections. Weights 30% of the pillar.',
+            measured: 'How different directors are from one another in background and connections.',
         },
         'Industry expertise': {
             provider: 'Bendable Labs (skills matrix)',
-            measured: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range. Weights 30% of the pillar.',
+            measured: 'Whether the share of directors with sector expertise sits in the ideal 30–50% range.',
         },
     },
     'Governance & Risk': {
         'Governance score': {
             provider: 'Diligent',
-            measured: 'Overall quality of the board\'s composition, structure and practices. Weights 30% of the pillar.',
+            measured: 'Overall quality of the board\'s composition, structure and practices.',
         },
         'Audit & Litigation Soundness': {
             provider: 'Ideagen',
-            measured: 'Freedom from audit red flags and notable open litigation. Weights 25% of the pillar.',
+            measured: 'Freedom from audit red flags and notable open litigation.',
         },
         'Controversy Avoidance': {
             provider: 'Sustainalytics',
-            measured: 'Freedom from significant ESG controversies. Weights 20% of the pillar.',
+            measured: 'Freedom from significant ESG controversies.',
         },
         'Activist Resilience': {
             provider: 'Diligent (DMI)',
-            measured: 'How resistant the board is to activist investor campaigns. Weights 15% of the pillar.',
+            measured: 'How resistant the board is to activist investor campaigns.',
         },
         'Shareholder Support': {
             provider: 'Diligent',
-            measured: 'Shareholder vote support for directors in their most recent election. Weights 10% of the pillar.',
+            measured: 'Shareholder vote support for directors in their most recent election.',
         },
     },
     'Financial': {
