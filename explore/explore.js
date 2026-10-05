@@ -6,7 +6,7 @@
  * row or a landscape bubble sets the active board (shown visually distinct in both).
  *
  * Reuses the compare-page components: SelectedCompaniesTable, ScatterPlot, GroupedBarChart,
- * ReportCard, ChartHeader (loaded from ../compare/*).
+ * ReportCard, ChartHeader (loaded from ../shared/*).
  */
 const MAX_COMPANIES = 500;
 
@@ -33,7 +33,7 @@ function Overview() {
     prevElement.current = selectedElement;
 
     useEffect(() => {
-        fetch('../compare/boards_dashboard_data.json')
+        fetch('../shared/boards_dashboard_data.json')
             .then(res => { if (!res.ok) throw new Error(`HTTP ${res.status}`); return res.json(); })
             .then(json => {
                 setData(json);

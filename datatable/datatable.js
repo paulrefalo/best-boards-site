@@ -7,7 +7,7 @@
 const { useCallback } = React;
 
 // ─── Constants ───
-// PILLAR_ELEMENTS, PILLAR_ORDER, INDICATOR_ORDER, WHATS_MEASURED loaded from ../compare/constants.js
+// PILLAR_ELEMENTS, PILLAR_ORDER, INDICATOR_ORDER, WHATS_MEASURED loaded from ../shared/constants.js
 
 const DT_COMPANY_COLORS = [
     '#4A7C8C', '#8B3A3A', '#5A6B4A', '#C87D4A', '#697380',
@@ -170,7 +170,7 @@ function DataTable() {
     const loadData = useCallback(() => {
         setLoading(true);
         setLoadError(null);
-        fetch('../compare/boards_dashboard_data.json')
+        fetch('../shared/boards_dashboard_data.json')
             .then(res => {
                 if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
                 return res.json();
@@ -379,7 +379,7 @@ function DataTable() {
             </div>
             <nav className="masthead-nav">
                 <a href="../methodology/index.html" className="nav-link">Methodology</a>
-                <a href="../overview/index.html" className="nav-link">Explore</a>
+                <a href="../explore/index.html" className="nav-link">Explore</a>
                 <a href="./index.html" className="nav-link active">Data Table</a>
             </nav>
             <a href="https://www.dowjones.com" target="_blank" rel="noopener noreferrer"><img src="../resources/dowjones_logo_green.svg" alt="Dow Jones" className="masthead-dj-logo" /></a>

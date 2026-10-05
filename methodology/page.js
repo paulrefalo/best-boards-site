@@ -179,7 +179,7 @@ function MethodologyPage() {
                 </div>
                 <nav className="masthead-nav">
                     <a href="./index.html" className="nav-link active">Methodology</a>
-                    <a href="../overview/index.html" className="nav-link">Explore</a>
+                    <a href="../explore/index.html" className="nav-link">Explore</a>
                     <a href="../datatable/index.html" className="nav-link">Data Table</a>
                 </nav>
                 <a href="https://www.dowjones.com" target="_blank" rel="noopener noreferrer"><img src="../resources/dowjones_logo_green.svg" alt="Dow Jones" className="masthead-dj-logo" /></a>
