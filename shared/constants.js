@@ -148,7 +148,7 @@ const WHATS_MEASURED = {
             measured: 'This assesses a company’s involvement in incidents with negative environmental, social and governance implications, with a focus on the impact to stakeholders and the financial risk to the company.',
         },
         'Activist Vulnerability': {
-            provider: 'Diligent (DMI)',
+            provider: 'Diligent',
             measured: 'A multiple logistic regression analysis of activist investor investment was used to assess the likelihood that a company becomes a target.',
         },
         'Shareholder Support': {

@@ -50,7 +50,7 @@ const DATA_SOURCES = [
     {
         area: 'Governance and Risk Management',
         indicator: 'Activist vulnerability',
-        provider: 'Diligent Market Intelligence',
+        provider: 'Diligent',
         measured: 'A multiple logistic regression analysis of activist investor investment was used to assess the likelihood that a company becomes a target.',
         details: 'This accounts for 15% of the Governance and Risk Management score.',
     },
